@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <img src="../../assets/menu_bar.svg" />
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+      <ion-button class="filter">
+        <ion-icon name="funnel-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Search Your Product"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+
+  <div class="title ion-padding">
+    <h2>Breed</h2>
+    <p>See all</p>
+  </div>
+
+  <div class="category-slider ion-padding-start">
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let category of categories">
+        <ion-col>
+          <h4>{{ category.name }}</h4>
+          <img src="{{ category.image }}" />
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="title ion-padding">
+    <h2 class="font-bold">Featured</h2>
+    <p>See all</p>
+  </div>
+
+  <div class="product-slider ion-padding-start">
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let product of featuredProducts">
+        <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
+          <img src="{{ product.image }}" />
+          <p>Rs {{ product.price }}</p>
+          <h6>{{ product.name }}</h6>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="title ion-padding">
+    <h2 class="font-bold">Best Sell</h2>
+    <p>See all</p>
+  </div>
+
+  <div class="product-slider ion-padding-start">
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let product of bestSellProducts">
+        <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
+          <img src="{{ product.image }}" />
+          <p>Rs {{ product.price }}</p>
+          <h6>{{ product.name }}</h6>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+<ion-footer>
+    <ion-tabs>
+    
+      <ion-fab vertical="bottom" horizontal="center" translucent="true">
+        <ion-fab-button tab="sell">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    
+      </ion-fab>
+    
+      <ion-tab-bar slot="bottom" class="ion-no-border">
+        <ion-tab-button tab="buy">
+          <ion-icon name="cart"></ion-icon>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="feed" class="comments">
+          <ion-icon name="cafe"></ion-icon>
+          <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+        </ion-tab-button>
+    
+        <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg"><path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path></svg>
+    
+        <ion-tab-button tab="medicine" class="notifs">
+          <ion-icon name="bandage"></ion-icon>
+          <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+        </ion-tab-button>
+    
+        <ion-tab-button tab="insemination">
+          <ion-icon name="git-branch"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+</ion-footer>
+
+  
+</ion-content>
